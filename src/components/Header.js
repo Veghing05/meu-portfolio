@@ -8,7 +8,9 @@ export default function Header() {
       <nav>
         <Link to="/">Início</Link>
         
-        <Link to="/projetos">Projetos</Link>
+        <Link to="/projetos"> Meus Projetos</Link>
+
+        <Link to="/ProjetosEbac">Projetos EBAC</Link>
 
         <Link to="/contato">Contato</Link>
 

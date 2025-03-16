@@ -7,6 +7,8 @@ import Projetos from "./components/Projetos";
 import Contato from "./components/Contato";
 import Certificados from "./components/Certificados";
 import "./App.css";
+import ProjetosEbac from './components/ProjetosEbac'; // Importando o novo componente
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projetos" element={<Projetos />} />
+          <Route path="/ProjetosEbac" component={ProjetosEbac} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/certificados" element={<Certificados />} />
         </Routes>
