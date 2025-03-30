@@ -1,17 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Importando o Link do react-router-dom
-import '../App.css'; // Caminho correto, subindo um nível para a pasta src
-
+import { Link } from "react-router-dom";
+import "../App.css"; // Caminho correto para o CSS
+import fotoDestaque from "../assets/CVFT.jpeg"; // Nome corrigido
 
 const Home = () => {
   return (
     <section className="home">
       <div className="hero">
-        <img
-          src="./components/assets/CVFT.jpeg"
-          alt="Foto do perfil"
-          className="foto-destaque"
-        />
+        <img src={fotoDestaque} alt="Foto do perfil" className="foto-destaque" />
         <h1>Bem-vindo ao Meu Portfólio</h1>
         <p>Transformando ideias em soluções digitais. Explore meus projetos!</p>
       </div>
@@ -33,9 +29,9 @@ const Home = () => {
         </div>
       </div>
 
-<br></br>
+      <br />
       <div className="navegacao">
-        <Link to="/projetos-ebac">Ver Projetos EBAC</Link> {/* Link para a nova página */}
+        <Link to="/ProjetosEbac">Ver Projetos EBAC</Link> {/* Corrigido o caminho */}
       </div>
     </section>
   );
