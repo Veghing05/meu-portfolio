@@ -24,6 +24,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    
   );
 }
 

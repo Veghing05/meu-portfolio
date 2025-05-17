@@ -1,25 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCode } from "react-icons/fa";
-
-
-<h1>Renato Vegh Dev <FaCode /></h1>
-
+import { FaCode, FaBars } from "react-icons/fa";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className="header">
-      <h1>RenatoVegh Dev <span>&lt;/&gt;</span></h1>
-      <nav>
-        <Link to="/">Início</Link>
-        
-        <Link to="/projetos">Meus Projetos Pessoais</Link>
+      {/* Logo e nome */}
+      <div className="logo">
+        <FaCode className="logo-icon" />
+        <h1>Renato Vegh Dev</h1>
+      </div>
 
-        <Link to="/ProjetosEbac">Projetos EBAC</Link>
+      {/* Botão menu hamburguer */}
+      <button className="menu-toggle" onClick={toggleMenu}>
+        <FaBars />
+      </button>
 
-        <Link to="/contato">Contato</Link>
-
-        <Link to="/certificados">Certificados</Link>
+      {/* Navegação */}
+      <nav className={`nav ${menuOpen ? "open" : ""}`}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>Início</Link>
+        <Link to="/projetos" onClick={() => setMenuOpen(false)}>Projetos Pessoais</Link>
+        <Link to="/ProjetosEbac" onClick={() => setMenuOpen(false)}>Projetos EBAC</Link>
+        <Link to="/contato" onClick={() => setMenuOpen(false)}>Contato</Link>
+        <Link to="/certificados" onClick={() => setMenuOpen(false)}>Certificados</Link>
       </nav>
     </header>
   );

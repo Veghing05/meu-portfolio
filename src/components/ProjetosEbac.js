@@ -7,53 +7,64 @@ import cssLogo from "../assets/logos/css.png";
 import jsLogo from "../assets/logos/javascript.png";
 import bootstrapLogo from "../assets/logos/bootstrap.png";
 
+// Dados dos projetos (opcional: facilita escalar depois)
+const projetos = [
+  {
+    titulo: "EbacShoes",
+    descricao: "Criação do site EbacShoes, loja de calçados.",
+    imagem: EbacShoes,
+    link: "https://ebac-shoes-ten-gamma.vercel.app/",
+    tecnologias: [htmlLogo, cssLogo, jsLogo, bootstrapLogo],
+  },
+  {
+    titulo: "Projeto EBAC 2",
+    descricao: "Descrição do projeto EBAC 2.",
+    imagem: "/images/projeto2.jpg", // se estiver em public/
+    link: "https://projeto-bootstrap-blue-six.vercel.app/",
+    tecnologias: [],
+  },
+  {
+    titulo: "Projeto EBAC 3",
+    descricao: "Descrição do projeto EBAC 3.",
+    imagem: "/images/projeto3.jpg",
+    link: "https://seu-link-projeto-3.com",
+    tecnologias: [],
+  },
+];
+
 export default function ProjetosEBAC() {
   return (
-    <section className="projetos">  
-      <div className="projeto">
-        <a 
-          href="https://ebac-shoes-ten-gamma.vercel.app/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <img src={EbacShoes} alt="Projeto EBAC 1" className="projeto-imagem" />
-        </a>
-        <h3>EbacShoes</h3>
-        <p>Criação do site EbacShoes, loja de calçados.</p>
+    <section className="projetos">
+      {projetos.map((projeto, index) => (
+        <div className="projeto" key={index}>
+          <a
+            href={projeto.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={projeto.imagem}
+              alt={`Imagem do projeto ${projeto.titulo}`}
+              className="projeto-imagem"
+            />
+          </a>
+          <h3>{projeto.titulo}</h3>
+          <p>{projeto.descricao}</p>
 
-        {/* Tecnologias usadas nesse projeto */}
-        <div className="tecnologias">
-          <img src={htmlLogo} alt="HTML" className="logo-tecnologia" title="HTML" />
-          <img src={cssLogo} alt="CSS" className="logo-tecnologia" title="CSS" />
-          <img src={jsLogo} alt="JavaScript" className="logo-tecnologia" title="JavaScript" />
-          <img src={bootstrapLogo} alt="Bootstrap" className="logo-tecnologia" title="Bootstrap" />
+          {projeto.tecnologias.length > 0 && (
+            <div className="tecnologias">
+              {projeto.tecnologias.map((logo, i) => (
+                <img
+                  key={i}
+                  src={logo}
+                  alt="Tecnologia"
+                  className="logo-tecnologia"
+                />
+              ))}
+            </div>
+          )}
         </div>
-      </div>
-
-      <div className="projeto">
-        <a 
-          href="https://projeto-bootstrap-blue-six.vercel.app/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <img src="/images/projeto2.jpg" alt="Projeto EBAC 2" className="projeto-imagem" />
-        </a>
-        <h3>Projeto EBAC 2</h3>
-        <p>Descrição do projeto EBAC 2.</p>
-      </div>
-
-      <div className="projeto">
-        <a 
-          href="https://seu-link-projeto-3.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <img src="/images/projeto3.jpg" alt="Projeto EBAC 3" className="projeto-imagem" />
-        </a>
-        <h3>Projeto EBAC 3</h3>
-        <p>Descrição do projeto EBAC 3.</p>
-      </div>
-
+      ))}
     </section>
   );
 }
