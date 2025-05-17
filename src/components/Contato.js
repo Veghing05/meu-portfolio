@@ -63,7 +63,7 @@ export default function Contato() {
             <span>WhatsApp</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/seulinkedin" // Troque pelo seu LinkedIn real
+            href="https://www.linkedin.com/in/renatobonivegh/" // Troque pelo seu LinkedIn real
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -72,7 +72,7 @@ export default function Contato() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="https://github.com/seugithub" // Troque pelo seu GitHub real
+            href="https://github.com/Veghing05" // Troque pelo seu GitHub real
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
