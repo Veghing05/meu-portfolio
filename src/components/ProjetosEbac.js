@@ -19,10 +19,10 @@ const projetos = [
   },
   {
     titulo: "Restaurante EBAC",
-    descricao: "Descrição do projeto EBAC.",
+    descricao: "Criação do site de um Restaurante.",
     imagem: Restaurante, // se estiver em public/
     link: "https://restaurante-sooty-psi.vercel.app/",
-    tecnologias: [],
+    tecnologias: [htmlLogo, cssLogo, bootstrapLogo],
   },
   {
     titulo: "Projeto EBAC 3",
