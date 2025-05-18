@@ -1,5 +1,6 @@
 import React from "react";
 import EbacShoes from "../assets/EbacShoes.png";
+import Restaurante from "../assets/Restaurante.png"
 
 // Logos das tecnologias
 import htmlLogo from "../assets/logos/html.png";
@@ -17,10 +18,10 @@ const projetos = [
     tecnologias: [htmlLogo, cssLogo, jsLogo, bootstrapLogo],
   },
   {
-    titulo: "Projeto EBAC 2",
-    descricao: "Descrição do projeto EBAC 2.",
-    imagem: "/images/projeto2.jpg", // se estiver em public/
-    link: "https://projeto-bootstrap-blue-six.vercel.app/",
+    titulo: "Restaurante EBAC",
+    descricao: "Descrição do projeto EBAC.",
+    imagem: Restaurante, // se estiver em public/
+    link: "https://restaurante-sooty-psi.vercel.app/",
     tecnologias: [],
   },
   {
