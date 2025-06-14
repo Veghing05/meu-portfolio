@@ -1,31 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 
+interface FormData {
+  nome: string;
+  email: string;
+  mensagem: string;
+}
+
 export default function Contato() {
-  // Estado para o formulário
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     nome: "",
     email: "",
     mensagem: "",
   });
 
-  // Atualiza o estado do formulário
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [statusMessage, setStatusMessage] = useState<string>("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Envia o formulário usando Formspree (troque o action para o seu endpoint)
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Simples validação
     if (!formData.nome || !formData.email || !formData.mensagem) {
-      alert("Por favor, preencha todos os campos.");
+      setStatusMessage("Por favor, preencha todos os campos.");
       return;
     }
 
-    // Envio via fetch para Formspree (troque o link abaixo pelo seu)
-    const formspreeEndpoint = "https://formspree.io/f/your-form-id";
+    const formspreeEndpoint = "https://formspree.io/f/your-form-id"; // substitua
 
     try {
       const response = await fetch(formspreeEndpoint, {
@@ -38,13 +42,13 @@ export default function Contato() {
       });
 
       if (response.ok) {
-        alert("Mensagem enviada com sucesso! Obrigado pelo contato.");
+        setStatusMessage("Mensagem enviada com sucesso! Obrigado pelo contato.");
         setFormData({ nome: "", email: "", mensagem: "" });
       } else {
-        alert("Erro ao enviar a mensagem. Tente novamente mais tarde.");
+        setStatusMessage("Erro ao enviar a mensagem. Tente novamente mais tarde.");
       }
-    } catch (error) {
-      alert("Erro de rede. Tente novamente mais tarde.");
+    } catch {
+      setStatusMessage("Erro de rede. Tente novamente mais tarde.");
     }
   };
 
@@ -54,7 +58,7 @@ export default function Contato() {
         <h2>📞 Conecte-se Comigo</h2>
         <div className="contatos-icons">
           <a
-            href="https://wa.me/11997582512" // Troque "SEUNUMERO" pelo seu WhatsApp com código do país e DDD (ex: 5511999999999)
+            href="https://wa.me/11997582512"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
@@ -63,7 +67,7 @@ export default function Contato() {
             <span>WhatsApp</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/renatobonivegh/" // Troque pelo seu LinkedIn real
+            href="https://www.linkedin.com/in/renatobonivegh/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -72,7 +76,7 @@ export default function Contato() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="https://github.com/Veghing05" // Troque pelo seu GitHub real
+            href="https://github.com/Veghing05"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -83,7 +87,7 @@ export default function Contato() {
         </div>
       </div>
 
-      <form className="form-contato" onSubmit={handleSubmit}>
+      <form className="form-contato" onSubmit={handleSubmit} noValidate>
         <h3>📬 Envie uma mensagem</h3>
 
         <label htmlFor="nome">Seu Nome</label>
@@ -116,11 +120,16 @@ export default function Contato() {
           value={formData.mensagem}
           onChange={handleChange}
           required
-          rows="5"
+          rows={5} // aqui o número pode ser number
         ></textarea>
 
         <button type="submit">Enviar</button>
       </form>
+
+      <div aria-live="polite" className="form-status-message">
+        {statusMessage}
+      </div>
     </section>
   );
 }
+

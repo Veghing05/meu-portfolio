@@ -1,5 +1,5 @@
 import React from "react";
-import perfilFoto from "../assets/perfil.jpg"; // coloque sua foto aqui
+import perfilFoto from "../assets/CVFT.jpeg"; // coloque sua foto aqui
 
 export default function Sobre() {
   return (
@@ -21,7 +21,8 @@ export default function Sobre() {
           <div className="redes-sociais">
             <a href="https://linkedin.com/in/seulinkedin" target="_blank" rel="noopener noreferrer">
               LinkedIn
-            </a> | 
+            </a>{" "}
+            |{" "}
             <a href="https://github.com/seugithub" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
