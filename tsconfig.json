@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "jsx": "react-jsx",  // ou "react" se usar React <17
     "moduleResolution": "node",
     "module": "esnext",
