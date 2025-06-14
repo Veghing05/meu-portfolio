@@ -4,7 +4,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 export default function Certificados() {
   const certificados = [
     {
-      titulo: "Full Stack Java",
+      titulo: "React Developer",
       descricao: "Emitido pela EBAC - Escola Britânica de Artes Criativas.",
       link: "https://example.com/certificado-react",
     },
